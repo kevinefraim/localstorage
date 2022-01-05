@@ -19,6 +19,9 @@ const Agregar = ({ productos, setProductos }) => {
       },
       ...productos,
     ]);
+    setNameProduct("");
+    setCantProduct("");
+    setPriceProduct("");
   };
 
   return (
@@ -30,6 +33,7 @@ const Agregar = ({ productos, setProductos }) => {
           <label className="form-label">Nombre del producto</label>
           <input
             type="text"
+            value={nameProduct}
             pattern="[a-zA-Z]*"
             className="form-control"
             onChange={(e) => setNameProduct(e.target.value)}
@@ -39,6 +43,7 @@ const Agregar = ({ productos, setProductos }) => {
           <label className="form-label">Cantidad</label>
           <input
             type="number"
+            value={cantProduct}
             min={0}
             className="form-control"
             onChange={(e) => setCantProduct(e.target.value)}
@@ -48,6 +53,7 @@ const Agregar = ({ productos, setProductos }) => {
           <label className="form-label">Precio</label>
           <input
             type="number"
+            value={priceProduct}
             min={0}
             className="form-control"
             onChange={(e) => setPriceProduct(e.target.value)}
