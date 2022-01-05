@@ -27,7 +27,7 @@ const Agregar = ({ productos, setProductos }) => {
       </button>
       {productos.length > 0 && (
         <div className="mt-3">
-          <h3>Total: {productsTotal}</h3>
+          <h3>Total: ${productsTotal}</h3>
         </div>
       )}
 
@@ -39,6 +39,12 @@ const Agregar = ({ productos, setProductos }) => {
         <div className="col-2 fw-bolder">Subtotal</div>
         <div className="col-1 fw-bolder">Acción</div>
       </div>
+      {productos.length === 0 && (
+        <h4 className="text-danger text-center mt-5">
+          Agregue productos a la lista!
+        </h4>
+      )}
+
       {productos.map((item) => (
         <div className="row border-top border-bottom mt-4 p-2" key={item.id}>
           <div className="col-2 fw-bolder">{item.id}</div>

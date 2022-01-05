@@ -9,6 +9,7 @@ const Agregar = ({ productos, setProductos }) => {
 
   const addProduct = (e) => {
     e.preventDefault();
+    if (nameProduct === "" || cantProduct === "" || priceProduct === "") return;
     setProductos([
       {
         name: nameProduct,
@@ -52,6 +53,7 @@ const Agregar = ({ productos, setProductos }) => {
             onChange={(e) => setPriceProduct(e.target.value)}
           />
         </div>
+
         <button type="submit" className="btn btn-success">
           Guardar
         </button>
