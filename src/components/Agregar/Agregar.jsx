@@ -1,12 +1,14 @@
 import "./Agregar.css";
-import { useState } from "react";
-import { v4 as uuidv4 } from "uuid";
+import { useContext, useState } from "react";
+import { appContext } from "../../store/appContext";
 
-const Agregar = ({ productos, setProductos }) => {
+const Agregar = () => {
+  const { productos, setProductos } = useContext(appContext);
   const [nameProduct, setNameProduct] = useState("");
   const [cantProduct, setCantProduct] = useState("");
   const [priceProduct, setPriceProduct] = useState("");
 
+  //Funcion onSubmit de productos
   const addProduct = (e) => {
     e.preventDefault();
     if (nameProduct === "" || cantProduct === "" || priceProduct === "") return;

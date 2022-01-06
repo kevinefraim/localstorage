@@ -1,16 +1,21 @@
-import { useEffect, useState } from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
-
+import { appContext } from "../../store/appContext";
 import "./Productos.css";
 
-const Agregar = ({ productos, setProductos }) => {
+const Agregar = () => {
+  const { productos, setProductos } = useContext(appContext);
+  //Funcion de borrar item
   const removeItem = (id) => {
     setProductos(productos.filter((producto) => producto.id != id));
   };
+
+  //Funcion de borrar todos
   const removeAll = () => {
     setProductos([]);
   };
 
+  //Variable con el precio total de los productos
   const productsTotal = productos.reduce(
     (price, product) => price + product.price * product.quantity,
     0
